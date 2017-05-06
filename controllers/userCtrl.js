@@ -1,10 +1,14 @@
 'use strict'
 
-module.exports.getUser = (id) => {
+module.exports.getUser = (userId) => {
 
 }
 
-module.exports.getUsersByGig = (id) => {
+module.exports.getUsersByInst = (instrument) => {
+
+}
+
+module.exports.getUsersByGig = (gigId) => {
 
 }
 
@@ -12,10 +16,10 @@ module.exports.createUser = () => {
 
 }
 
-module.exports.updateUser = (id) => {
+module.exports.updateUser = (userId) => {
 
 }
 
-module.exports.deleteUser = (id) => {
+module.exports.deleteUser = (userId) => {
 
 }

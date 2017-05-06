@@ -1,10 +1,10 @@
 'use strict'
 
-module.exports.getSeat = (id) => {
+module.exports.getSeat = (seatId) => {
 
 }
 
-module.exports.getSeatsByGig = (id) => {
+module.exports.getSeatsByGig = (gigId) => {
 
 }
 
@@ -12,10 +12,10 @@ module.exports.createSeat = () => {
 
 }
 
-module.exports.updateSeat = (id) => {
+module.exports.updateSeat = (seatId) => {
 
 }
 
-module.exports.deleteSeat = (id) => {
+module.exports.deleteSeat = (seatId) => {
 
 }

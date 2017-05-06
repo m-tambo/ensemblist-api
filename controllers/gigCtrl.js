@@ -1,10 +1,10 @@
 'use strict'
 
-module.exports.getGig = (id) => {
+module.exports.getGig = (gigId) => {
 
 }
 
-module.exports.getGigsByOwner = (id) => {
+module.exports.getGigsByOwner = (ownerId) => {
 
 }
 
@@ -12,10 +12,10 @@ module.exports.createGig = () => {
 
 }
 
-module.exports.updateGig = (id) => {
+module.exports.updateGig = (gigId) => {
 
 }
 
-module.exports.deleteGig = (id) => {
+module.exports.deleteGig = (gigId) => {
 
 }
