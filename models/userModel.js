@@ -1,6 +1,6 @@
 'use strict'
 
-const bookshelf = require('../db/database.js')
+const { bookshelf } = require('../db/database.js')
 require('./seatModel.js')
 require('./gigModel.js')
 

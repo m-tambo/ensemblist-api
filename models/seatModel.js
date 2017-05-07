@@ -1,12 +1,12 @@
 'use strict'
 
-const bookshelf = require('../db/database.js')
+const { bookshelf } = require('../db/database.js')
 require('./gigModel.js')
 require('./userModel.js')
 
 const Seat = bookshelf.Model.extend(
   {
-    tableName: 'seats'
+    tableName: 'seats',
     user: function() { return this.hasOne('User') },
     gig: function() { return this.hasOne('Gig') }
   },
