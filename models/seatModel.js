@@ -11,20 +11,19 @@ const Seat = bookshelf.Model.extend(
     gig: function() { return this.hasOne('Gig') }
   },
   {
-    getAllGigs: function() {
+    getAllSeats: function() {
       console.log("Get all from the Gig model");
       return this.forge()
         .fetchAll()
         .then(rows => rows)
         .catch(error => error)
     },
-    getOneGig: function(id) {
+    getOneSeat: function(id) {
       return this.forge({id})
         .fetch()
         .then(show => show)
         .catch(err => err)
     }
-
   },
   {
     dependents: ['user', 'gig']
