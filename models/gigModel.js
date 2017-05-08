@@ -12,18 +12,20 @@ const Gig = bookshelf.Model.extend(
     user: function() { return this.hasOne('User') }
   },
   {
-    getAllGigs: function() {
-      console.log("Get all from the Gig model");
-      return this.forge()
-        .fetchAll()
-        .then(rows => rows)
-        .catch(error => error)
+    getOne: function(id) {
+      return this.forge({ id }).fetch({ withRelated: ['user'], require: true})
     },
-    getOneGig: function(id) {
-      return this.forge({id})
-        .fetch()
-        .then(show => show)
-        .catch(err => err)
+    getAllByOwner: function(id) {
+      return this.forge().fetchAll().where({ owner_id: id })
+    },
+    create: function(newGig) {
+      return this.forge(newGig).save({},{require: true})
+    },
+    update: function(id, updates) {
+      return this.forge({id}).save({updates})
+    },
+    delete: function(id) {
+      return this.forge({id}).destroy()
     }
   },
   {
