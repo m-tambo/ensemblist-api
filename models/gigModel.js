@@ -16,7 +16,7 @@ const Gig = bookshelf.Model.extend(
       return this.forge({ id }).fetch({ withRelated: ['user'], require: true})
     },
     getAllByOwner: function(id) {
-      return this.forge().fetchAll().where({ owner_id: id })
+      return this.forge({ owner_id: id }).fetchAll()
     },
     create: function(newGig) {
       return this.forge(newGig).save({},{require: true})

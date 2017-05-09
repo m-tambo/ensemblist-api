@@ -10,19 +10,24 @@ const User = bookshelf.Model.extend(
     seat: function() { return this.belongsToMany('Seat') },
     gig: function() { return this.belongsToMany('Gig') }
   },
-  {
-    getAllUsers: function() {
-      console.log("Get all from the User model");
-      return this.forge()
-        .fetchAll()
-        .then(rows => rows)
-        .catch(error => error)
+{
+    getOne: function(id) {
+      return this.forge({ id })
     },
-    getOneUser: function(id) {
-      return this.forge({id})
-        .fetch()
-        .then(show => show)
-        .catch(err => err)
+    getAllByInstrument: function(instrument) {
+      return this.forge().fetchAll().where({instrument:instrument})
+    },
+    getAllByGig: function(id) {
+      return this.forge().fetchAll({ withRelated: ['gig'], require: true })
+    },
+    create: function(newUser) {
+      return this.forge(newUser).save({},{require: true})
+    },
+    update: function(id, updates) {
+      return this.forge({id}).save({updates})
+    },
+    delete: function(id) {
+      return this.forge({id}).destroy()
     }
   },
   {

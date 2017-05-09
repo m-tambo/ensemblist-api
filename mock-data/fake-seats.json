@@ -1,0 +1,26 @@
+[
+  {
+    "user_id": 1,
+    "gig_id": 1,
+    "instrument": "violin",
+    "status": "accepted"
+  },
+  {
+    "user_id": 2,
+    "gig_id": 1,
+    "instrument": "cello",
+    "status": "pending"
+  },
+  {
+    "user_id": null,
+    "gig_id": 1,
+    "instrument": "viola",
+    "status": ""
+  },
+  {
+    "user_id": null,
+    "gig_id": 1,
+    "instrument": "violin",
+    "status": ""
+  }
+]

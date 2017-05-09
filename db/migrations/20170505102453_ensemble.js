@@ -20,7 +20,7 @@ exports.up = function(knex, Promise) {
       t.string('name').notNullable()
       t.string('description').notNullable()
       t.integer('seatNum').notNullable()
-      t.integer('date').notNullable()
+      t.string('date').notNullable()
       t.string('status')
     })
     .createTable('seats', (t) => {
