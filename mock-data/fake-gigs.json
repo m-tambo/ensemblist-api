@@ -1,0 +1,10 @@
+[
+  {
+    "owner_id": 1,
+    "name": "Magnuson Wedding",
+    "description": "String quartet needed to play Mozart for the Magnuson wedding",
+    "seatNum": 4,
+    "date": "07/07/2017",
+    "status": "open"
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "name": {
+      "title": "mr",
+      "first": "philip",
+      "last": "riley"
+    },
+    "location": {
+      "street": "4200 depaul dr",
+      "city": "red oak",
+      "state": "new jersey",
+      "postcode": 35652
+    },
+    "email": "philip.riley@example.com",
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/men/71.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/men/71.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/71.jpg"
+    },
+    "instrument": "saxophone"
+  },
+  {
+    "name": {
+      "title": "ms",
+      "first": "edna",
+      "last": "mckinney"
+    },
+    "location": {
+      "street": "2019 mockingbird ln",
+      "city": "broken arrow",
+      "state": "pennsylvania",
+      "postcode": 42211
+    },
+    "email": "edna.mckinney@example.com",
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/women/83.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/women/83.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/83.jpg"
+    },
+    "instrument": "voice alto"
+  }
+]
