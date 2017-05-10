@@ -29,7 +29,12 @@ module.exports.updateGig = (req, res, next) => {
 }
 
 module.exports.deleteGig = ({ params: { gigId } }, res, next) => {
-  Gig.delete(gigId)
-    .then(() => res.status(202).json({ "msg": "Gig removed" }))
-    .catch(err => next(err))
+  Seat.forge()  // first delete all seats with this gig id
+    .where({ gig_id: gigId })
+    .destroy()
+    .then(() => {  // then delete gig
+      Gig.delete(gigId)
+        .then(() => res.status(202).json({ "msg": "Gig removed" }))
+        .catch(err => next(err))
+    })
 }
