@@ -7,21 +7,21 @@ require('./userModel.js')
 const Seat = bookshelf.Model.extend(
   {
     tableName: 'seats',
-    user: function() { return this.hasOne('User') },
-    gig: function() { return this.hasOne('Gig') }
+    user: function() { return this.belongsTo('User') },
+    gig: function() { return this.belongsTo('Gig') }
   },
   {
     getOne: function(id) {
-      return this.forge({ id })
+      return this.forge({ id }).fetch()
     },
     getAllByGig: function(id) {
-      return this.forge(id).fetch({ withRelated: ['gig'], require: true})
+      return this.forge().fetch({ withRelated: ['gig'], require: true})
     },
     create: function(newSeat) {
       return this.forge(newSeat).save({},{require: true})
     },
     update: function(id, updates) {
-      return this.forge({id}).save({updates})
+      return this.where({id}).save(updates, {method: 'update'})
     },
     delete: function(id) {
       return this.forge({id}).destroy()

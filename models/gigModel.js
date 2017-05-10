@@ -22,7 +22,7 @@ const Gig = bookshelf.Model.extend(
       return this.forge(newGig).save({},{require: true})
     },
     update: function(id, updates) {
-      return this.forge({id}).save({updates})
+      return this.where({id}).save(updates, {method: 'update'})
     },
     delete: function(id) {
       return this.forge({id}).destroy()
