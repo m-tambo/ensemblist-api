@@ -16,9 +16,8 @@ module.exports.getGigsByOwner = ({ params: { ownerId } }, res, next) => {
     .catch(err => next(err))
 }
 
-module.exports.createGig = (req, res, next) => {
-  console.log("body:", req.body)
-  Gig.create(req.body)
+module.exports.createGig = ({ body }, res, next) => {
+  Gig.create(body)
     .then(() => res.status(201).json({ "msg": "Nice work, you created a gig" }))
     .catch(err => next(err))
 }
