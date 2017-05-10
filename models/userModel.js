@@ -7,15 +7,15 @@ require('./gigModel.js')
 const User = bookshelf.Model.extend(
   {
     tableName: 'users',
-    seat: function() { return this.belongsToMany('Seat') },
-    gig: function() { return this.belongsToMany('Gig') }
+    seats: function() { return this.hasMany('Seat') },
+    gig: function() { return this.hasMany('Gig') }
   },
 {
     getOne: function(id) {
-      return this.forge({ id })
+      return this.forge({ id }).fetch({ withRelated: ['seats'], require: true})
     },
     getAllByInstrument: function(instrument) {
-      return this.forge().fetchAll().where({instrument:instrument})
+      return this.where({instrument:instrument}).fetchAll()
     },
     getAllByGig: function(id) {
       return this.forge().fetchAll({ withRelated: ['gig'], require: true })
@@ -24,7 +24,7 @@ const User = bookshelf.Model.extend(
       return this.forge(newUser).save({},{require: true})
     },
     update: function(id, updates) {
-      return this.forge({id}).save({updates})
+      return this.where({id}).save(updates, {method: 'update'})
     },
     delete: function(id) {
       return this.forge({id}).destroy()
