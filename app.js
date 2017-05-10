@@ -6,9 +6,10 @@ const routes = require('./routes') // automatically looks for index.js file
 
 const port = process.env.PORT || 3030;
 
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json({ type: '*/*' }))
 
+// app.post('/test', (req, res) => res.send(`Hello ${req.body.name}`))
 app.use('/api/v1', routes)
 
 app.listen(port, () => {
