@@ -1,11 +1,13 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
+const cors = require('cors')
 
 const routes = require('./routes') // automatically looks for index.js file
 
 const port = process.env.PORT || 3030;
 
+app.use(cors()) // allows cross-origin sharing
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json({ type: '*/*' }))
 
