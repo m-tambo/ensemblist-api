@@ -13,6 +13,7 @@ exports.up = function(knex, Promise) {
       t.string('state').notNullable()
       t.string('zip').notNullable()
       t.string('instrument').notNullable()
+      t.string('picUrl')
     })
     .createTable('gigs', (t) => {
       t.increments()
