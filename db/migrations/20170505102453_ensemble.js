@@ -28,7 +28,7 @@ exports.up = function(knex, Promise) {
       t.increments()
       t.integer('user_id').unsigned().references('users.id')
       t.integer('gig_id').unsigned().references('gigs.id')
-      t.string('instrument').notNullable()
+      t.string('instrument')
       t.string('status')
     })
 }
