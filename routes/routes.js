@@ -3,9 +3,12 @@
 const { Router } = require('express')
 const router = Router()
 
+const { getZips } = require('./zipCode.js')
 const { getGig, getGigsByOwner, createGig, updateGig, deleteGig } = require('../controllers/gigCtrl.js')
 const { getSeat, getSeatsByGig, createSeat, updateSeat, deleteSeat } = require('../controllers/seatCtrl.js')
 const { getUser, getUsersByInst, getUsersByGig, createUser, updateUser, deleteUser } = require('../controllers/userCtrl.js')
+
+router.get('/zipsearch/:zip/:radius', getZips)
 
 router.get('/gig/:gigId', getGig)
 router.get('/gigs/:ownerId', getGigsByOwner)
