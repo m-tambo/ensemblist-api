@@ -2,9 +2,9 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const cors = require('cors')
+require('dotenv').config()
 
 const routes = require('./routes') // automatically looks for index.js file
-
 const port = process.env.PORT || 3030;
 
 app.use(cors()) // allows cross-origin sharing
