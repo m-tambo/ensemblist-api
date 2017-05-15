@@ -4,6 +4,7 @@
   "description": "API for web application EnsembList",
   "main": "index.js",
   "scripts": {
+    "db:reset": "knex migrate:rollback && knex migrate:latest && knex seed:run",
     "test": "nodemon --exec \"mocha --recursive\" -R list"
   },
   "author": "m-tambo",
