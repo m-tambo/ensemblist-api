@@ -17,6 +17,9 @@ const Seat = bookshelf.Model.extend(
     getAllByGig: function(id) {
       return this.where({ gig_id: id}).fetchAll({ withRelated: ['user'], require: true})
     },
+    getAllByUser: function(id) {
+      return this.where({ user_id: id}).fetchAll({ withRelated: ['gig'], require: true})
+    },
     create: function(newSeat) {
       return this.forge(newSeat).save({},{require: true})
     },
