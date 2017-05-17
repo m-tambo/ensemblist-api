@@ -7,7 +7,7 @@ const { createSession, destroySession } = require('../controllers/sessionCtrl.js
 const { getGig, getGigsByOwner, createGig, updateGig, deleteGig } = require('../controllers/gigCtrl.js')
 const { getSeat, getSeatsByGig, getSeatsByUser, createSeat, updateSeat, deleteSeat } = require('../controllers/seatCtrl.js')
 const { getUser, getUsersByInst, getUsersByGig, createUser, updateUser, deleteUser } = require('../controllers/userCtrl.js')
-const { getZips } = require('./zipCode.js')
+const { getZips, getLatLong } = require('./zipCode.js')
 
 router.post('/login', createSession)
 router.post('/logout', destroySession)
@@ -42,6 +42,7 @@ router.patch('/user/edit/:userId', updateUser)
 router.delete('/user/delete/:userId', deleteUser)
 
 router.get('/zipsearch/:zip/:radius', getZips)
+router.get('/latlong/:zip', getLatLong)
 
 
 module.exports = router

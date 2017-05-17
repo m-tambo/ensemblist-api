@@ -20,3 +20,14 @@ module.exports.getZips = (req, res, next) => { // hit ZIP API for zip codes in a
   .then((array) => res.status(200).json(array))
   .catch(err => next(err))
 }
+
+module.exports.getLatLong = (req, res, next) => {
+  rp({
+    uri: `https://www.zipcodeapi.com/rest/${zipAPI}/info.json/${req.params.zip}/degrees`,
+    json: true
+  })
+  .then((data) => {
+    res.status(200).json(data)
+  })
+  .catch(err => next(err))
+}
