@@ -16,6 +16,12 @@ module.exports.getSeatsByGig = ({ params: { gigId } }, res, next) => {
     .catch(err => next(err))
 }
 
+module.exports.getSeatsByUser = ({ params: { userId } }, res, next) => {
+  Seat.getAllByUser(userId)
+    .then(seats => res.status(200).json(seats))
+    .catch(err => next(err))
+}
+
 module.exports.createSeat = ({ body }, res, next) => {
   Seat.create(body)
     .then(() => res.status(201).json({ "msg": "New seat added" }))

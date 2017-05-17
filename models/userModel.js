@@ -1,6 +1,7 @@
 'use strict'
 
 const { bookshelf } = require('../db/database.js')
+const { compare } = require('bcryptjs')
 require('./seatModel.js')
 require('./gigModel.js')
 
@@ -8,7 +9,14 @@ const User = bookshelf.Model.extend(
   {
     tableName: 'users',
     seats: function() { return this.hasMany('Seat') },
-    gig: function() { return this.hasMany('Gig') }
+    gig: function() { return this.hasMany('Gig') },
+    bcrypt: { field: 'password'},
+    comparePass: function (passwordStr) {
+      console.log("password String from user", passwordStr )
+      console.log("password from db:", this.attributes.password)
+      console.log("user", this.attributes)
+      return compare(passwordStr, this.attributes.password)
+    }
   },
 {
     getOne: function(id) {
@@ -21,6 +29,7 @@ const User = bookshelf.Model.extend(
       return this.forge().fetchAll({ withRelated: ['gig'], require: true })
     },
     create: function(newUser) {
+      console.log("newUser being injected into db:", newUser)
       return this.forge(newUser).save({},{require: true})
     },
     update: function(id, updates) {
@@ -28,6 +37,17 @@ const User = bookshelf.Model.extend(
     },
     delete: function(id) {
       return this.forge({id}).destroy()
+    },
+    findOneByEmail: function (email) {
+      return this.forge({email}).fetch()
+        .then( (user) => {
+          console.log("user found")
+          return user
+        })
+        .catch( () => {
+          console.log("Could not find email among users")
+          return (null)
+        })
     }
   },
   {

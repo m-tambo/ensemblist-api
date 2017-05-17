@@ -5,14 +5,16 @@ exports.up = function(knex, Promise) {
   return knex.schema
     .createTable('users', (t) => {
       t.increments()
-      t.string('first').notNullable()
-      t.string('last').notNullable()
+      t.string('first')
+      t.string('last')
       t.string('email').notNullable()
-      t.string('street').notNullable()
-      t.string('city').notNullable()
-      t.string('state').notNullable()
-      t.string('zip').notNullable()
-      t.string('instrument').notNullable()
+      t.string('password').notNullable()
+      t.string('street')
+      t.string('city')
+      t.string('state')
+      t.string('zip')
+      t.string('instrument')
+      t.string('picUrl')
     })
     .createTable('gigs', (t) => {
       t.increments()
@@ -27,7 +29,7 @@ exports.up = function(knex, Promise) {
       t.increments()
       t.integer('user_id').unsigned().references('users.id')
       t.integer('gig_id').unsigned().references('gigs.id')
-      t.string('instrument').notNullable()
+      t.string('instrument')
       t.string('status')
     })
 }
