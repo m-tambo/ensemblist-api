@@ -29,17 +29,17 @@
 	},
 	{
 		"name": {
-			"title": "ms",
-			"first": "holly",
-			"last": "hoffman"
+			"title": "mr",
+			"first": "ray",
+			"last": "ritz"
 		},
 		"location": {
-			"street": "3089 edwards rd",
-			"city": "overland park",
-			"state": "maryland",
-			"postcode": 38488
+			"street": "210 westwood pl",
+			"city": "brentwood",
+			"state": "tennessee",
+			"postcode": 37027
 		},
-		"email": "holly.hoffman@example.com",
+		"email": "getshitdone@gmail.com",
 		"login": {
 			"username": "brownfish806",
 			"password": "$2a$12$wJvatFhcQy/pzTATF6h8YuPbZHnHxXSB/gK9OnpVhDfTvfvFfkmHq",
@@ -49,11 +49,11 @@
 			"sha256": "94657a4a4c70a9b80557b0c370ae5340a2b3bdd05162837d8a4411e6feafc4cc"
 		},
 		"picture": {
-			"large": "https://randomuser.me/api/portraits/women/24.jpg",
+			"large": "https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/5/005/080/1f5/2b4023b.jpg",
 			"medium": "https://randomuser.me/api/portraits/med/women/24.jpg",
 			"thumbnail": "https://randomuser.me/api/portraits/thumb/women/24.jpg"
 		},
-		"instrument": "voice mezzo-soprano"
+		"instrument": "tuba"
 	},
 	{
 		"name": {
