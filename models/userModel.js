@@ -28,6 +28,17 @@ const User = bookshelf.Model.extend(
     },
     delete: function(id) {
       return this.forge({id}).destroy()
+    },
+    findOneByEmail: function (email) {
+      return this.forge({email}).fetch()
+        .then( (user) => {
+          console.log("user found")
+          return user
+        })
+        .catch( () => {
+          console.log("Could not find email among users")
+          return (null)
+        })
     }
   },
   {
