@@ -23,4 +23,4 @@ exports.seed = function(knex, Promise) {
   .then(function() {
     return Promise.all(userPromise)
   })
-};
+}
