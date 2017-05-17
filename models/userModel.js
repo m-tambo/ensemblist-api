@@ -29,6 +29,7 @@ const User = bookshelf.Model.extend(
       return this.forge().fetchAll({ withRelated: ['gig'], require: true })
     },
     create: function(newUser) {
+      console.log("newUser being injected into db:", newUser)
       return this.forge(newUser).save({},{require: true})
     },
     update: function(id, updates) {
