@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-const { knex } = require('../../database.js');
+const { knex } = require('../../database.js')
 const userData = require('../../../mock-data/randomUsers.json')
 
 let userPromise = userData.map((user) => {
@@ -8,6 +8,7 @@ let userPromise = userData.map((user) => {
     first:user.name.first,
     last:user.name.last,
     email:user.email,
+    password:user.login.password,
     street:user.location.street,
     city:user.location.city,
     state:user.location.state,
@@ -22,4 +23,4 @@ exports.seed = function(knex, Promise) {
   .then(function() {
     return Promise.all(userPromise)
   })
-};
+}
