@@ -17,7 +17,7 @@ router.post('/logout', destroySession)
 //   if (req.isAuthenticated()) {
 //     next()
 //   } else {
-//     res.redirect('/landing')
+//     res.redirect('/login')
 //   }
 // })
 
