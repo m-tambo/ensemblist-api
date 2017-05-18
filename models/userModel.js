@@ -9,14 +9,7 @@ const User = bookshelf.Model.extend(
   {
     tableName: 'users',
     seats: function() { return this.hasMany('Seat') },
-    gig: function() { return this.hasMany('Gig') },
-    bcrypt: { field: 'password'},
-    comparePass: function (passwordStr) {
-      // console.log("password String from user", passwordStr )
-      // console.log("password from db:", this.attributes.password)
-      // console.log("user", this.attributes)
-      return compare(passwordStr, this.attributes.password)
-    }
+    gig: function() { return this.hasMany('Gig') }
   },
 {
     getOne: function(id) {
@@ -37,17 +30,6 @@ const User = bookshelf.Model.extend(
     },
     delete: function(id) {
       return this.forge({id}).destroy()
-    },
-    findOneByEmail: function (email) {
-      return this.forge({email}).fetch()
-        .then( (user) => {
-          console.log("user found")
-          return user
-        })
-        .catch( () => {
-          console.log("Could not find email among users")
-          return (null)
-        })
     }
   },
   {

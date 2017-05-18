@@ -22,27 +22,11 @@ module.exports.getUsersByGig = ({ params: { gigId } }, res, next) => {
     .catch(err => next(err))
 }
 
-module.exports.createUser = ({body: {email, password, confirmation}}, res, next) => {
-  console.log("body obj from the user ctrl:", email, password, confirmation)
-  if (password === confirmation) {
-    User.findOneByEmail(email)
-    .then( (user) => {
-      if (user) return res.render('register', { msg: 'Email is already registered'})
-      return User.create({email: email, password: password})
-      .then( () => res.status(201).json({ "msg": "New user added" }))
-      // catch for save()
-      .catch( (err) => next(err))
-    })
-  } else {
-    res.send({ msg: 'Oops. Password and confirmation did not match. Try again'})
-  }
+module.exports.createUser = ({ body }, res, next) => {
+  User.create(body)
+    .then(() => res.status(201).json({ "msg": "New user created" }))
+    .catch(err => next(err))
 }
-
-// ({ body }, res, next) => {
-//   User.create(body)
-//     .then(() => res.status(201).json({ "msg": "New user created" }))
-//     .catch(err => next(err))
-// }
 
 
 module.exports.updateUser = (req, res, next) => {
