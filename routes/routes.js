@@ -14,13 +14,13 @@ router.post('/logout', destroySession)
 
 // login guard middleware. send user back if not authenticated
 // router.use( (req, res, next) => {
+//   // console.log("req.user:", req.user)
 //   if (req.isAuthenticated()) {
 //     next()
 //   } else {
 //     res.redirect('/login')
 //   }
 // })
-
 router.get('/gig/:gigId', getGig)
 router.get('/gigs/:ownerId', getGigsByOwner)
 router.post('/gig/new', createGig)

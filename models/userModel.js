@@ -12,9 +12,9 @@ const User = bookshelf.Model.extend(
     gig: function() { return this.hasMany('Gig') },
     bcrypt: { field: 'password'},
     comparePass: function (passwordStr) {
-      console.log("password String from user", passwordStr )
-      console.log("password from db:", this.attributes.password)
-      console.log("user", this.attributes)
+      // console.log("password String from user", passwordStr )
+      // console.log("password from db:", this.attributes.password)
+      // console.log("user", this.attributes)
       return compare(passwordStr, this.attributes.password)
     }
   },
